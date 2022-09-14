@@ -7,7 +7,7 @@
         url: https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_architecture }}
         dest: '{{ docker_machine_path }}'
         checksum: '{{ docker_machine_checksum }}'
-        mode: 0755
+        mode: '755'
       become: yes
 
     - name: Provision Docker Machines
@@ -23,7 +23,7 @@
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/run.sh
     dest: '{{ docker_compose_path }}'
     checksum: '{{ docker_compose_checksum }}'
-    mode: 0755
+    mode: '755'
   become: yes
   tags: [docker, packages]
   when: docker_install_compose|bool
